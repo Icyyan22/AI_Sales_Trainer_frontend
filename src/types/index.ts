@@ -1,7 +1,7 @@
 export interface CustomerProfile {
   name: string
   role: string
-  hospital: string
+  organization: string
   background: string
   concerns: string[]
   speaking_style: string

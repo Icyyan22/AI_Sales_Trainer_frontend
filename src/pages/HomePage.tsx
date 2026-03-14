@@ -82,7 +82,7 @@ export default function HomePage() {
   const [formName, setFormName] = useState('')
   const [formCustomerName, setFormCustomerName] = useState('')
   const [formCustomerRole, setFormCustomerRole] = useState('')
-  const [formCustomerHospital, setFormCustomerHospital] = useState('')
+  const [formCustomerOrg, setFormCustomerOrg] = useState('')
   const [formCustomerBackground, setFormCustomerBackground] = useState('')
   const [formCustomerConcerns, setFormCustomerConcerns] = useState('')
   const [formCustomerStyle, setFormCustomerStyle] = useState('')
@@ -174,7 +174,7 @@ export default function HomePage() {
     setFormName('')
     setFormCustomerName('')
     setFormCustomerRole('')
-    setFormCustomerHospital('')
+    setFormCustomerOrg('')
     setFormCustomerBackground('')
     setFormCustomerConcerns('')
     setFormCustomerStyle('')
@@ -202,7 +202,7 @@ export default function HomePage() {
         name: formName,
         customer_name: formCustomerName,
         customer_role: formCustomerRole,
-        customer_hospital: formCustomerHospital,
+        customer_organization: formCustomerOrg,
         customer_background: formCustomerBackground,
         customer_concerns: formCustomerConcerns
           .split(/[,，、]/)
@@ -593,11 +593,11 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div>
-                  <label className="block text-xs text-slate-500 mb-1">医院</label>
+                  <label className="block text-xs text-slate-500 mb-1">所属机构</label>
                   <input
-                    value={formCustomerHospital}
-                    onChange={(e) => setFormCustomerHospital(e.target.value)}
-                    placeholder="例：XX市人民医院"
+                    value={formCustomerOrg}
+                    onChange={(e) => setFormCustomerOrg(e.target.value)}
+                    placeholder="例：XX公司、XX医院、XX学校"
                     className={inputClass}
                   />
                 </div>

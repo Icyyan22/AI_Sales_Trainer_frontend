@@ -149,7 +149,7 @@ export async function createScenario(data: {
   name: string
   customer_name: string
   customer_role: string
-  customer_hospital: string
+  customer_organization: string
   customer_background: string
   customer_concerns: string[]
   customer_speaking_style: string

@@ -289,8 +289,8 @@ export default function ChatPage() {
                   <span>{scenarioData.customer_profile.role}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-slate-400 w-8">医院</span>
-                  <span>{scenarioData.customer_profile.hospital}</span>
+                  <span className="text-slate-400 w-8">机构</span>
+                  <span>{scenarioData.customer_profile.organization}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-slate-400 w-8">产品</span>

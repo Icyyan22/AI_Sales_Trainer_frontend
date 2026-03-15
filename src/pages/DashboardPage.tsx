@@ -189,25 +189,43 @@ export default function DashboardPage() {
           />
         </div>
 
-        {/* Skill trend chart */}
+        {/* Overall score trend */}
         {trend.length > 0 && (
           <div className="bg-white rounded-2xl border border-slate-200 p-5">
-            <h3 className="text-sm font-semibold text-slate-800 mb-4">技能趋势</h3>
-            <ResponsiveContainer width="100%" height={300}>
+            <h3 className="text-sm font-semibold text-slate-800 mb-4">总分趋势</h3>
+            <ResponsiveContainer width="100%" height={220}>
               <LineChart data={trend}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-                <XAxis dataKey="date" tick={{ fontSize: 12 }} stroke="#94a3b8" />
-                <YAxis tick={{ fontSize: 12 }} stroke="#94a3b8" />
+                <XAxis dataKey="date" tick={{ fontSize: 11 }} stroke="#94a3b8" />
+                <YAxis domain={[0, 100]} tick={{ fontSize: 11 }} stroke="#94a3b8" />
+                <Tooltip
+                  contentStyle={{ borderRadius: 12, border: '1px solid #e2e8f0', fontSize: 13 }}
+                  labelFormatter={(v) => `日期: ${v}`}
+                />
+                <Line type="monotone" dataKey="overall_score" name="总分" stroke="#6366f1" strokeWidth={2.5} dot={{ r: 3 }} activeDot={{ r: 5 }} />
+              </LineChart>
+            </ResponsiveContainer>
+          </div>
+        )}
+
+        {/* Dimension score trend */}
+        {trend.length > 0 && (
+          <div className="bg-white rounded-2xl border border-slate-200 p-5">
+            <h3 className="text-sm font-semibold text-slate-800 mb-4">维度评分趋势 <span className="text-xs font-normal text-slate-400">（1-5分）</span></h3>
+            <ResponsiveContainer width="100%" height={220}>
+              <LineChart data={trend}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+                <XAxis dataKey="date" tick={{ fontSize: 11 }} stroke="#94a3b8" />
+                <YAxis domain={[0, 5]} ticks={[0, 1, 2, 3, 4, 5]} tick={{ fontSize: 11 }} stroke="#94a3b8" />
                 <Tooltip
                   contentStyle={{ borderRadius: 12, border: '1px solid #e2e8f0', fontSize: 13 }}
                   labelFormatter={(v) => `日期: ${v}`}
                 />
                 <Legend wrapperStyle={{ fontSize: 12 }} />
-                <Line type="monotone" dataKey="overall_score" name="总分" stroke="#6366f1" strokeWidth={2.5} dot={{ r: 3 }} />
-                <Line type="monotone" dataKey="data_citation" name="数据引用" stroke="#3b82f6" strokeWidth={1.5} dot={false} />
-                <Line type="monotone" dataKey="customer_relevance" name="客户关联" stroke="#10b981" strokeWidth={1.5} dot={false} />
-                <Line type="monotone" dataKey="fab_structure" name="FAB结构" stroke="#f59e0b" strokeWidth={1.5} dot={false} />
-                <Line type="monotone" dataKey="interaction" name="互动技巧" stroke="#8b5cf6" strokeWidth={1.5} dot={false} />
+                <Line type="monotone" dataKey="data_citation" name="数据引用" stroke="#3b82f6" strokeWidth={2} dot={{ r: 2.5 }} />
+                <Line type="monotone" dataKey="customer_relevance" name="客户关联" stroke="#10b981" strokeWidth={2} dot={{ r: 2.5 }} />
+                <Line type="monotone" dataKey="fab_structure" name="FAB结构" stroke="#f59e0b" strokeWidth={2} dot={{ r: 2.5 }} />
+                <Line type="monotone" dataKey="interaction" name="互动技巧" stroke="#8b5cf6" strokeWidth={2} dot={{ r: 2.5 }} />
               </LineChart>
             </ResponsiveContainer>
           </div>
